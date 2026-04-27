@@ -1,24 +1,29 @@
-## 9. 演習記録
+# 入門編 第2章 Query Tool / psql に慣れる
 
-### 演習で行ったこと
+## 1. この章の目的
 
-第2章の演習では、`books` テーブルを作成し、データを追加して、Query Toolで実行結果を確認した。
+この章の目的は、SQLを書く場所・実行する場所に慣れることである。
 
-今回行った流れは次の通りである。
+SQL学習では、今後たくさんのコードを書くため、
 
-1. `DROP TABLE IF EXISTS` で既存のテーブルを削除する
-2. `CREATE TABLE` で新しいテーブルを作成する
-3. `INSERT INTO` でデータを追加する
-4. `SELECT * FROM` でテーブルの中身を確認する
-5. `SELECT 列名, 列名 FROM` で一部の列だけを表示する
+- どこにSQLを書くのか
+- どうやって実行するのか
+- 実行結果はどこに表示されるのか
+- エラーが出たときにどう考えるのか
+
+を理解しておく必要がある。
+
+第2章では、主に pgAdmin の Query Tool を使って、SQLを実行する流れに慣れた。
 
 ---
 
-### 作成したテーブル
+## 2. Query Toolとは
+
+Query Tool は、pgAdmin の中で SQL を書いて実行するための画面である。
+
+Query Tool に SQL を書き、実行ボタンを押すと、PostgreSQL に命令が送られる。
+
+例えば、次のSQLは students テーブルの中身を表示する命令である。
 
 ```sql
-CREATE TABLE books (
-    id INTEGER,
-    title TEXT,
-    price INTEGER
-);
+SELECT * FROM students;

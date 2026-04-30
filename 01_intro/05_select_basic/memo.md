@@ -109,20 +109,20 @@ FROM books;
 
 `CREATE TABLE` を使って、`books` テーブルを作成した。
 
-CREATE TABLE books (
+`CREATE TABLE books (
     book_id INTEGER,
     title VARCHAR(100),
     author VARCHAR(50),
     price INTEGER,
     genre VARCHAR(30),
     stock INTEGER
-);
+);`
 
 ### データ挿入
 
 `INSERT INTO` を使って、複数行のデータをまとめて挿入した。
 
-INSERT INTO books (book_id, title, author, price, genre, stock)
+`INSERT INTO books (book_id, title, author, price, genre, stock)
 VALUES
     (1, 'こころ', '夏目漱石', 500, '小説', 12),
     (2, '吾輩は猫である', '夏目漱石', 600, '小説', 8),
@@ -130,36 +130,36 @@ VALUES
     (4, 'SQL入門', '田中一郎', 2200, 'IT', 5),
     (5, 'Python基礎', '佐藤花子', 2500, 'IT', 7),
     (6, '統計学入門', '鈴木次郎', 2800, '統計', 4),
-    (7, 'データ分析実践', '佐藤花子', 3200, '統計', 3);
+    (7, 'データ分析実践', '佐藤花子', 3200, '統計', 3);`
 
 ### 全データの確認
 
-SELECT *
-FROM books;
+`SELECT *
+FROM books;`
 
 このSQLで、`books` テーブルにデータが正しく入っているか確認した。
 
 ### 必要な列だけ表示
 
-SELECT title, author, price
-FROM books;
+`SELECT title, author, price
+FROM books;`
 
 `SELECT *` ではなく、必要な列だけを指定して表示した。
 
 ### 列の順番を変えて表示
 
-SELECT author, title, genre
-FROM books;
+`SELECT author, title, genre
+FROM books;`
 
 元テーブルの列順とは関係なく、`SELECT` で指定した順番で結果表が表示されることを確認した。
 
 ### 税込価格の表示
 
-SELECT
+`SELECT
     title,
     price,
     price * 1.10 AS tax_included_price
-FROM books;
+FROM books;`
 
 `price * 1.10` によって、税込価格を計算して表示した。
 
@@ -167,12 +167,12 @@ FROM books;
 
 ### 在庫金額の表示
 
-SELECT
+`SELECT
     title,
     price,
     stock,
     price * stock AS stock_value
-FROM books;
+FROM books;`
 
 価格と在庫数を掛け合わせて、在庫金額を計算した。
 
@@ -180,9 +180,9 @@ FROM books;
 
 ### 表示用の本名を作成
 
-SELECT
+`SELECT
     title || '（' || author || '）' AS book_label
-FROM books;
+FROM books;`
 
 PostgreSQLでは、文字列の結合に `||` を使う。
 
@@ -190,22 +190,22 @@ PostgreSQLでは、文字列の結合に `||` を使う。
 
 ### ジャンルの種類を確認
 
-SELECT DISTINCT genre
-FROM books;
+`SELECT DISTINCT genre
+FROM books;`
 
 `DISTINCT` を使うことで、重複を取り除き、登録されているジャンルの種類だけを確認した。
 
 ### 著者の一覧を確認
 
-SELECT DISTINCT author
-FROM books;
+`SELECT DISTINCT author
+FROM books;`
 
 登録されている著者を重複なしで表示した。
 
 ### 著者とジャンルの組み合わせを確認
 
-SELECT DISTINCT author, genre
-FROM books;
+`SELECT DISTINCT author, genre
+FROM books;`
 
 このSQLでは、`author` だけで重複を消しているのではなく、`author` と `genre` の組み合わせで重複を判定している。
 
@@ -217,18 +217,18 @@ FROM books;
 
 たとえば、以下のSQLを実行しても、元の価格は変わらない。
 
-SELECT
+`SELECT
     title,
     price,
     price + 100 AS new_price
-FROM books;
+FROM books;`
 
 これは、価格を100円上げた結果を表示しているだけである。
 
 一方で、実際にデータを変更するには以下のように `UPDATE` を使う。
 
-UPDATE books
-SET price = price + 100;
+`UPDATE books
+SET price = price + 100;`
 
 今回の章では、`SELECT` と `UPDATE` の違いを意識した。
 
@@ -240,13 +240,13 @@ SET price = price + 100;
 
 誤りの例。
 
-SELECT title price
-FROM books;
+`SELECT title price
+FROM books;`
 
 正しい例。
 
-SELECT title, price
-FROM books;
+`SELECT title, price
+FROM books;`
 
 ### テーブル名の間違い
 
@@ -254,13 +254,13 @@ FROM books;
 
 例。
 
-SELECT *
-FROM book;
+`SELECT *
+FROM book;`
 
 実際のテーブル名が `books` であれば、正しくは以下のように書く。
 
-SELECT *
-FROM books;
+`SELECT *
+FROM books;`
 
 ### 列名の間違い
 
@@ -268,13 +268,13 @@ FROM books;
 
 例。
 
-SELECT titles
-FROM books;
+`SELECT titles
+FROM books;`
 
 実際の列名が `title` であれば、正しくは以下のように書く。
 
-SELECT title
-FROM books;
+`SELECT title
+FROM books;`
 
 ### SELECTとUPDATEの混同
 

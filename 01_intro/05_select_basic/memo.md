@@ -109,20 +109,23 @@ FROM books;
 
 `CREATE TABLE` を使って、`books` テーブルを作成した。
 
-`CREATE TABLE books (
+```sql
+CREATE TABLE books (
     book_id INTEGER,
     title VARCHAR(100),
     author VARCHAR(50),
     price INTEGER,
     genre VARCHAR(30),
     stock INTEGER
-);`
+);
+```
 
 ### データ挿入
 
 `INSERT INTO` を使って、複数行のデータをまとめて挿入した。
 
-`INSERT INTO books (book_id, title, author, price, genre, stock)
+```sql
+INSERT INTO books (book_id, title, author, price, genre, stock)
 VALUES
     (1, 'こころ', '夏目漱石', 500, '小説', 12),
     (2, '吾輩は猫である', '夏目漱石', 600, '小説', 8),
@@ -130,7 +133,8 @@ VALUES
     (4, 'SQL入門', '田中一郎', 2200, 'IT', 5),
     (5, 'Python基礎', '佐藤花子', 2500, 'IT', 7),
     (6, '統計学入門', '鈴木次郎', 2800, '統計', 4),
-    (7, 'データ分析実践', '佐藤花子', 3200, '統計', 3);`
+    (7, 'データ分析実践', '佐藤花子', 3200, '統計', 3);
+```
 
 ### 全データの確認
 
